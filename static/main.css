@@ -15,8 +15,8 @@
 }
 body,
 input {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 12pt;
+  line-height: 17pt;
   color: #353740;
   font-family: "ColfaxAI", Helvetica, sans-serif;
 }
@@ -27,9 +27,6 @@ body {
   padding-top: 60px;
   width: 400px;
   margin: auto;
-}
-.icon {
-  width: 34px;
 }
 h3 {
   font-size: 32px;
@@ -76,4 +73,21 @@ a {
 }
 .id {
   display: none;
+}
+
+
+@media only screen and (max-width: 600px) {
+  body {
+    width: 85%;
+  }
+  form, .text-zone {
+    width: 100%;
+  }
+  input[type="submit"] {
+    padding: 1vh 0;
+  }
+  input[type="text"] {
+    padding: 1vh 1.3vh;
+    margin-bottom: 1.4vh;
+  }
 }
