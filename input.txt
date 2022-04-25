@@ -1,0 +1,61 @@
+context: infrastructure, fall
+joke: Yo mama's so fat, when she fell I didn't laugh, but the sidewalk cracked up.
+
+context: stocks, finance
+joke: Yo mama's so fat, when she skips a meal, the stock market drops.
+
+context: bus, train, appearance
+joke: Yo mama's so fat, it took me two buses and a train to get to her good side.
+
+context: nature, camping
+joke: Yo mama's so fat, when she goes camping, the bears hide their food.
+
+context: coat
+joke: Yo mama's so fat, if she buys a fur coat, a whole species will become extinct.
+
+context: scale
+joke: Yo mama's so fat, when she steps on a scale it says "one at a time."
+
+context: petroleum
+joke: Yo mama's so fat, when she wears high heels, she strikes oil.
+
+context: government
+joke: Yo mama's so fat, she was overthrown by a small militia group, and now she's known as the Republic of Yo Mama.
+
+context: house
+joke: Yo mama's so fat, when she sits around the house, she SITS AROUND the house.
+
+context:  automobile
+joke: Yo mama's so fat, her car has stretch marks.
+
+context: language
+joke: Yo mama's so fat, she can't even jump to a conclusion.
+
+context: Ragu
+joke: Yo mama's so fat, her blood type is Ragu.
+
+context: Star Wars
+joke: Yo mama's so fat, if she was a Star Wars character, her name would be Admiral Snackbar.
+
+context: football
+joke: Yo mama's so fat, she brought a spoon to the Super Bowl.
+
+context: traffic
+joke: Yo mama's so fat, when she stands in a left-turn lane it gives her the green arrow!
+
+context: environment
+joke: Yo mama's so fat, when she sits on the beach, Greenpeace shows up and tries to tow her back to sea.
+
+context: Taxi
+joke: Yo mama's so fat, when she wears a yellow raincoat people shout "Taxi!"
+
+context: Dora
+joke: Yo mama's so fat, even Dora can't explore her.
+
+context: mythology
+joke: Yo mama's so fat, when God said "Let there be light", he asked her to move first.
+
+context: shadow
+joke: Yo mama's so fat, her shadow weighs 35 pounds.
+
+context: 

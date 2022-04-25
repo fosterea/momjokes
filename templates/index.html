@@ -1,21 +1,38 @@
 <!DOCTYPE html>
 <head>
-  <title>OpenAI Quickstart</title>
+  <title>&#x1f916 &#128173 Your Mom = ?</title>
   <link
     rel="shortcut icon"
-    href="{{ url_for('static', filename='dog.png') }}"
+    href="{{ url_for('static', filename='laugh.png') }}"
   />
+  <script src="{{ url_for('static', filename='user.js')}}"></script>
   <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
-  <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
-  </form>
+  <h3>&#x1f916 &#128173 Your Mom = ?</h3>
+  <div class="text-zone">
+    <p>
+      Uses <a href="https://openai.com/api/">GPT3</a>, openai's text completion model, to generate jokes based on prompts you provide.
+    </p>
+    <p>
+      <b>Ex:</b> stocks <b>=></b> Yo mama so fat, when she skips a meal the stock market crashes.
+    </p>
+    <p>
+      Keep in mind this is an AI system, so the jokes may suck or be offensive in another way than intended.
+    </p>
+  </div>
+  <p>
+    <form action="/" method="post">
+      <input type="text" name="context" autofocus placeholder="Enter context for the joke" required maxlength="100"/>
+      <input type="submit" value="Generate joke" />
+      <input name="id" class="id" id="id"/>
+    </form>
+  </p>
   {% if result %}
   <div class="result">{{ result }}</div>
+  {% endif %}
+  {% if error %}
+  <div class="error">{{ error }}</div>
   {% endif %}
 </body>

@@ -25,6 +25,8 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 60px;
+  width: 400px;
+  margin: auto;
 }
 .icon {
   width: 34px;
@@ -36,7 +38,7 @@ h3 {
   color: #202123;
   margin: 16px 0 40px;
 }
-form {
+form, .text-zone {
   display: flex;
   flex-direction: column;
   width: 320px;
@@ -60,7 +62,18 @@ input[type="submit"] {
   text-align: center;
   cursor: pointer;
 }
-.result {
+.result, .error {
+  text-align: center;
   font-weight: bold;
-  margin-top: 40px;
+  margin-top: 10px;
+}
+.error {
+  color: red;
+}
+a {
+  color: #1f4ba3;
+  font-weight: bold;
+}
+.id {
+  display: none;
 }
