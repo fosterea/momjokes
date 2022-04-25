@@ -80,6 +80,9 @@ a {
   body {
     width: 85%;
   }
+  input {
+    width: 100%;
+  }
   form, .text-zone {
     width: 100%;
   }
