@@ -61,4 +61,5 @@ def check_input(context):
         return "Please enter more input."
     return None
 
-app.run()
+if __name__ == "__main__":
+    app.run()
