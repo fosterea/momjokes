@@ -79,9 +79,7 @@ a {
 @media only screen and (max-width: 600px) {
   body {
     width: 85%;
-  }
-  input {
-    width: 100%;
+    zoom: 200%;
   }
   form, .text-zone {
     width: 100%;
