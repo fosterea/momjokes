@@ -39,6 +39,19 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       form.addEventListener("submit", processForm);
     }
+
+    if (navigator.userAgent.match(/Android/i) //I copied this if statement from https://redstapler.co/detect-mobile-device-with-javascript/
+    || navigator.userAgent.match(/webOS/i) //This if statment is true if the website is being run in a mobile browser
+    || navigator.userAgent.match(/iPhone/i)
+    || navigator.userAgent.match(/iPad/i)
+    || navigator.userAgent.match(/iPod/i)
+    || navigator.userAgent.match(/BlackBerry/i)
+    || navigator.userAgent.match(/Windows Phone/i)) {
+
+    
+  } else {
+    document.getElementById('context').focus();
+  }
 });
 
 function processForm(e) {
