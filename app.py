@@ -49,6 +49,39 @@ def index():
     return render_template("index.html", result=result, error=error)
 
 
+@app.route("/query", methods=("POST",))
+def query():
+    form = request.json
+    context = form["context"]
+    id = form["id"]
+
+    # Limits requests per minute
+    # Add new users or reset old users after a minute
+    if id not in users or users[id]['time'] + 60 < time.time():
+        users[id] = {'num': 0, 'time': time.time()}
+    # Keep track of querys
+    users[id]['num'] += 1
+    # Block user if there are too many querys
+    if users[id]['num'] > max_propmpts_per_min:
+        return {"error" :"Too many prompts. Wait a minute."}
+        
+
+    error = check_input(context)
+    if error != None:
+        return {"error":error}
+
+    response = openai.Completion.create(
+        engine="text-davinci-002",
+        prompt=generate_prompt(context),
+        temperature=.2,
+        max_tokens=50,
+        stop=["context:"],
+        user=id
+    )
+    return {"result":response.choices[0].text}
+
+
+
 def generate_prompt(context):
     return input + context.strip() + "\njoke: "
 

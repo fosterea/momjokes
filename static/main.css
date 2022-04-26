@@ -73,6 +73,10 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+input[type="submit"]:disabled {
+  background-color: #5ecbb0;
+}
+
 .result,
 .error {
   text-align: center;
