@@ -1,3 +1,5 @@
+var phone;
+
 function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -48,9 +50,11 @@ document.addEventListener('DOMContentLoaded', function () {
     || navigator.userAgent.match(/BlackBerry/i)
     || navigator.userAgent.match(/Windows Phone/i)) {
 
+      phone = true;
     
   } else {
     document.getElementById('context').focus();
+    phone = false;
   }
 });
 
@@ -75,7 +79,10 @@ function processForm(e) {
     document.getElementById("context").disabled = false;
     document.getElementById("submit").disabled = false;
     document.getElementById("context").value = '';
-    document.getElementById("context").focus();
+    if (!phone){
+      document.getElementById("context").focus();
+    }
+    
   });
 
   // You must return false to prevent the default form behavior
