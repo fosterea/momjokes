@@ -103,7 +103,6 @@ def check_input(context):
 
 def check_output(output):
     """Returns any error associated with a bad output."""
-    
     # Removes the offensive insult about yo mama
     output = output.lower()
     output = output.replace('yo mama\'s so fat,', "").strip()
