@@ -79,7 +79,7 @@ def query():
         user=id
     )
 
-    output = response.choices[0].text
+    output = response.choices[0].text.strip()
     # Check with content filter
     error = check_output(output)
     if error != None:
@@ -103,6 +103,11 @@ def check_input(context):
 
 def check_output(output):
     """Returns any error associated with a bad output."""
+    
+    # Removes the offensive insult about yo mama
+    output = output.lower()
+    output = output.replace('yo mama\'s so fat,', "").strip()
+
     response = openai.Completion.create(
         engine="content-filter-alpha",
         prompt = "<|endoftext|>"+output+"\n--\nLabel:",
