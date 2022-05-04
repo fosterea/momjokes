@@ -12,6 +12,7 @@ with open('input.txt', 'r') as f:
 max_context_len = 100
 users = {}
 max_propmpts_per_min = 15
+ALLOWED_PRE = ['yo mama\'s so fat', 'yo mama so short']
 
 @app.route("/", methods=("GET", "POST"))
 def index():
@@ -104,8 +105,11 @@ def check_input(context):
 def check_output(output):
     """Returns any error associated with a bad output."""
     # Removes the offensive insult about yo mama
-    output = output.lower()
-    output = output.replace('yo mama\'s so fat,', "").strip()
+    output = " " + output.lower().strip()
+    print(output)
+    for allowed in ALLOWED_PRE:
+        if allowed in output:
+            return None
 
     response = openai.Completion.create(
         engine="content-filter-alpha",
