@@ -12,7 +12,15 @@ with open('input.txt', 'r') as f:
 max_context_len = 100
 users = {}
 max_propmpts_per_min = 15
-ALLOWED_PRE = ['yo mama\'s so fat', 'yo mama so short']
+
+ALLOWED_STARTS = ['yo mama\'s so']
+ALLOWED_ADJ = ['fat', 'short', 'tone deaf', 'dumb', 'tall', 'literal', 'tall', 'small', 'rad', 'slow']
+
+ALLOWED_PRE = []
+
+for start in ALLOWED_STARTS:
+    for adj in ALLOWED_ADJ:
+        ALLOWED_PRE.append(f"{start} {adj}")
 
 @app.route("/", methods=("GET", "POST"))
 def index():
