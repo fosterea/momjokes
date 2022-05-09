@@ -1,6 +1,6 @@
 # Mom Jokes Generator
 
-This flask web app uses OpenAI’s [GPT-3](https://beta.openai.com) to generate yo mama jokes. The standard prompt is stored in [input.txt](input.txt). The users input is appended to this file.
+This flask web app uses OpenAI’s [GPT-3](https://beta.openai.com) to generate yo mama jokes. The standard prompt is stored in [input.txt](input.txt). The user input is appended to this file.
 
 ```
 The following is a list of yo mama jokes and their context.
