@@ -22,42 +22,11 @@ for start in ALLOWED_STARTS:
     for adj in ALLOWED_ADJ:
         ALLOWED_PRE.append(f"{start} {adj}")
 
-@app.route("/", methods=("GET", "POST"))
+@app.route("/", methods=("GET"))
 def index():
-    if request.method == "POST":
-        context = request.form["context"]
-        id = request.form["id"]
+    return render_template("index.html")
 
-        # Limits requests per minute
-        # Add new users or reset old users after a minute
-        if id not in users or users[id]['time'] + 60 < time.time():
-            users[id] = {'num': 0, 'time': time.time()}
-        # Keep track of querys
-        users[id]['num'] += 1
-        # Block user if there are too many querys
-        if users[id]['num'] > max_propmpts_per_min:
-            return redirect(url_for("index", error="Too many prompts. Wait a minute."))
-        
-
-        error = check_input(context)
-        if error != None:
-            return redirect(url_for("index", error=error))
-
-        response = openai.Completion.create(
-            engine="text-davinci-002",
-            prompt=generate_prompt(context),
-            temperature=.2,
-            max_tokens=50,
-            stop=["context:"],
-            user=id
-        )
-        return redirect(url_for("index", result=response.choices[0].text))
-
-    result = request.args.get("result")
-    error = request.args.get("error")
-    return render_template("index.html", result=result, error=error)
-
-
+# Internal API Route
 @app.route("/query", methods=("POST",))
 def query():
     form = request.json
@@ -74,11 +43,13 @@ def query():
     if users[id]['num'] > max_propmpts_per_min:
         return {"error" :"Too many prompts. Wait a minute."}
         
-
+    # Checks if the input meets 
+    # the requirements
     error = check_input(context)
     if error != None:
         return {"error":error}
 
+    # Get completion
     response = openai.Completion.create(
         engine="text-davinci-002",
         prompt=generate_prompt(context),
@@ -87,8 +58,8 @@ def query():
         stop=["context:"],
         user=id
     )
-
     output = response.choices[0].text.strip()
+
     # Check with content filter
     error = check_output(output)
     if error != None:

@@ -1,44 +1,22 @@
-# OpenAI API Quickstart - Python example app
+# Mom Jokes Generator
 
-This is an example pet name generator app used in the OpenAI API [quickstart tutorial](https://beta.openai.com/docs/quickstart). It uses the [Flask](https://flask.palletsprojects.com/en/2.0.x/) web framework. Check out the tutorial or follow the instructions below to get set up.
+This flask web app uses OpenAI’s [GPT-3](https://beta.openai.com) to generate yo mama jokes. The standard prompt is stored in [input.txt](input.txt). The users input is appended to this file.
 
-## Setup
+```
+The following is a list of yo mama jokes and their context.
 
-1. If you don’t have Python installed, [install it from here](https://www.python.org/downloads/)
+context: stocks
+joke: Yo mama's so fat, when she skips a meal, the stock market crashes.
 
-2. Clone this repository
+context: 
+```
 
-3. Navigate into the project directory
+[app.py](app.py) implements the flask web app. The / route returns the web page and /query is the internal api. The query function inplements:
+* Stopping the user from providing input 15 times per minute
+* Checks if the input is longer than 100 characters or has no characters
+* Sends the request to OpenAI
+* Uses a jery rigged content filter to censor content. Because almost all jokes are flaged as harmful, it only checks jokes not begining with the allowed prefixes (generated in app.py).
 
-   ```bash
-   $ cd openai-quickstart-python
-   ```
+[user.js](static/user.js) implements the client side. user.js creates a random id based on the time and a random number, which is stored as cookie on the user's browser (not secure I know). user.js also gets the result or error from the server.
 
-4. Create a new virtual environment
-
-   ```bash
-   $ python -m venv venv
-   $ . venv/bin/activate
-   ```
-
-5. Install the requirements
-
-   ```bash
-   $ pip install -r requirements.txt
-   ```
-
-6. Make a copy of the example environment variables file
-
-   ```bash
-   $ cp .env.example .env
-   ```
-
-7. Add your [API key](https://beta.openai.com/account/api-keys) to the newly created `.env` file
-
-8. Run the app
-
-   ```bash
-   $ flask run
-   ```
-
-You should now be able to access the app at [http://localhost:5000](http://localhost:5000)! For the full context behind this example app, check out the [tutorial](https://beta.openai.com/docs/quickstart).
+The link to the working website is [momjokes.herokuapp.com](http://momjokes.herokuapp.com). **Note it may take a second to boot up**
